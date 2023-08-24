@@ -1,9 +1,18 @@
+<% id_attr = "line-item-#{line_item.id}" %>
+
 <% if line_item == @current_item %>
-  <tr class="line-item-highlight">
+  <tr class="line-item-highlight" id="<%= id_attr %>">
 <% else %>
-  <tr>
+  <tr id="<%= id_attr %>">
 <% end %>
-  <td class="text-right"><%= line_item.quantity %></td>
+
+  <td class="text-right">
+    <div class="quantity-box">
+      <%= button_to '+', increment_line_item_path(line_item), method: :post, remote: true, class: 'increment-button' %>
+      <%= button_to '-', decrement_line_item_path(line_item), method: :post, remote: true, class: 'decrement-button' %>
+    </div>
+  </td>
+  <td><%= line_item.quantity %></td>
   <td>&times;</td>
   <td class="pr-2">
     <%= line_item.product.title %>

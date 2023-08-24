@@ -1,0 +1,2 @@
+// Find the line item row by its unique ID and update its content
+$("#line-item-<%= @line_item.id %>").replaceWith("<%= j render partial: 'line_item', locals: { line_item: @line_item } %>");

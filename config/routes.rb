@@ -6,6 +6,14 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
   
+  resources :line_items do
+    member do
+      post :increment
+      post :decrement
+    end
+  end
+  
+  
   resources :users
   resources :orders
   resources :line_items

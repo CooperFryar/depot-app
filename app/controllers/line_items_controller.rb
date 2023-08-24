@@ -65,6 +65,24 @@ class LineItemsController < ApplicationController
     end
   end
 
+  def increment
+    @line_item = LineItem.find(params[:id])
+    @line_item.quantity += 1
+    @line_item.save
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  def decrement
+    @line_item = LineItem.find(params[:id])
+    @line_item.quantity -= 1 if @line_item.quantity > 0
+    @line_item.save
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_line_item

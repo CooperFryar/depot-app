@@ -11,3 +11,25 @@
 .line-item-highlight {
     animation: line-item-highlight 1s;
 }
+
+.quantity-box {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.increment-button,
+.decrement-button {
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.increment-button:hover {
+    background: #057909;
+}
+
+.decrement-button:hover {
+    background: #a50202;
+}
